@@ -97,6 +97,17 @@ public class MobileConnectConfig {
 
     private Map<String, String> operatorDiscoveryNameMap;
 
+    protected OperatorsList operatorsList;
+
+    @XmlElement(name = "OperatorsList")
+    public OperatorsList getOperatorsList() {
+        return operatorsList;
+    }
+
+    public void setOperatorsList(OperatorsList operatorsList) {
+        this.operatorsList = operatorsList;
+    }
+
     @XmlElementWrapper(name = "OperatorDiscoveryNamesMapping")
     public Map<String, String> getOperatorDiscoveryNameMap() {
         return operatorDiscoveryNameMap;
@@ -2639,6 +2650,63 @@ public class MobileConnectConfig {
             this.maxMSISDNLimit = maxMSISDNLimit;
         }
 
+    }
+
+    public static class OperatorsList {
+
+        private List<OperatorData> operatorData;
+
+        @XmlElement(name = "OperatorData")
+        public List<OperatorData> getOperatorData() {
+            return operatorData;
+        }
+
+        public void setOperatorData(List<OperatorData> operatorData) {
+            this.operatorData = operatorData;
+        }
+    }
+
+    public static class OperatorData {
+
+        private String operatorName;
+        private String userInfoEndPointType;
+        private String className;
+        private String userInfoEndPointURL;
+
+        public String getClassName() {
+            return className;
+        }
+        @XmlElement(name = "ClassName")
+        public void setClassName(String className) {
+            this.className = className;
+        }
+
+        @XmlElement(name = "OperatorName")
+        public String getOperatorName() {
+            return operatorName;
+        }
+
+        public void setOperatorName(String operaterName) {
+            this.operatorName = operaterName;
+        }
+
+        @XmlElement(name = "UserInfoEndPointType")
+        public String getUserInfoEndPointType() {
+            return userInfoEndPointType;
+        }
+
+        public void setUserInfoEndPointType(String userInfoEndPointType) {
+            this.userInfoEndPointType = userInfoEndPointType;
+        }
+
+        @XmlElement(name = "UserInfoEndPointURL")
+        public String getUserInfoEndPointURL() {
+            return userInfoEndPointURL;
+        }
+
+        public void setUserInfoEndPointURL(String userInfoEndPointURL) {
+            this.userInfoEndPointURL = userInfoEndPointURL;
+        }
     }
 
 }
